@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.integralblue.commander.plugins</groupId>
+	<artifactId>marytts</artifactId>
+	<packaging>jar</packaging>
+
+	<name>MaryTTS Synthesizer</name>
+
+	<parent>
+		<groupId>com.integralblue.commander</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<properties>
+		<marytts.version>5.1.2</marytts.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.integralblue.commander</groupId>
+			<artifactId>api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.dfki.mary</groupId>
+			<artifactId>marytts-runtime</artifactId>
+			<version>${marytts.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.dfki.mary</groupId>
+			<artifactId>marytts-lang-en</artifactId>
+			<version>${marytts.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.dfki.mary</groupId>
+			<artifactId>voice-cmu-slt-hsmm</artifactId>
+			<version>${marytts.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<repositories>
+		<repository>
+			<id>marytts-bintry</id>
+			<name>marytts-bintray</name>
+			<url>https://dl.bintray.com/marytts/marytts/</url>
+		</repository>
+	</repositories>
+</project>

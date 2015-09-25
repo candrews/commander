@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.integralblue.commander.plugins</groupId>
+	<artifactId>repeatunknown</artifactId>
+	<packaging>jar</packaging>
+
+	<name>repeatunknown</name>
+
+	<parent>
+		<groupId>com.integralblue.commander</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.integralblue.commander</groupId>
+			<artifactId>api</artifactId>
+		</dependency>
+	</dependencies>
+</project>

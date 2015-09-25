@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.integralblue.commander</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Commander is a voice control system offering extensive extensibility via plugins.</description>
+	<url>https://www.integralblue.com/commander</url>
+
+	<licenses>
+		<license>
+			<name>GNU Affero General Public License version 3.0</name>
+			<url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Craig Andrews</name>
+			<email>candrews@integralblue.com</email>
+			<url>http://candrews.integralblue.com</url>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git@github.com:candrews/commander.git</connection>
+		<developerConnection>scm:git:git@github.com:candrews/commander.git</developerConnection>
+		<url>git@github.com:candrews/commander.git</url>
+	</scm>
+
+	<issueManagement>
+		<url>https://github.com/candrews/commander/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<slf4j.version>1.7.12</slf4j.version>
+	</properties>
+	<modules>
+		<module>api</module>
+		<module>core</module>
+		<module>web</module>
+		<module>loaders/groovy</module>
+		<module>loaders/jar</module>
+		<module>loaders/javascript</module>
+		<module>loaders/maven</module>
+		<module>plugins/echo</module>
+		<module>plugins/exceptionthrowingjsgfparser</module>
+		<module>plugins/keywords</module>
+		<module>plugins/logsay</module>
+		<module>plugins/mainmenuprompt</module>
+		<module>plugins/nevermind</module>
+		<module>plugins/quit</module>
+		<module>plugins/repeat</module>
+		<module>plugins/repeatunknown</module>
+		<module>plugins/weather</module>
+		<module>plugins/what</module>
+		<module>plugins/adapters</module>
+		<module>plugins/console</module>
+		<module>plugins/freetts</module>
+		<module>plugins/sphinx4</module>
+		<module>plugins/watson</module>
+		<module>plugins/marytts</module>
+		<module>plugins/googlettsv1</module>
+		<module>plugins/localaudio</module>
+		<module>plugins/dictationforunknowngrammar</module>
+		<module>plugins/startreksounds</module>
+	</modules>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.16.6</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.typesafe</groupId>
+				<artifactId>config</artifactId>
+				<version>1.3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.integralblue.commander</groupId>
+				<artifactId>core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.integralblue.commander</groupId>
+				<artifactId>api</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- The httpcomponents dependencies must be explicitly version managed 
+				so Maven's dependency resolver doesn't downgrade them to a point of incompatibility 
+				with certain parts of the project when some dependencies express dependencies 
+				on older versions -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>4.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcomponents-client</artifactId>
+				<version>4.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcomponents-cache</artifactId>
+				<version>4.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>4.4.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore-nio</artifactId>
+				<version>4.4.3</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>jcenter</id>
+			<url>https://jcenter.bintray.com </url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+</project>

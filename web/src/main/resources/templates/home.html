@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Commander</title>
+<script type="text/javascript"
+	src="//cdn.jsdelivr.net/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript"
+	src="//cdn.jsdelivr.net/sockjs/1.0.3/sockjs.min.js"></script>
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script th:src="@{js/commander.js}"></script>
+</head>
+
+<body>
+	<div class="connecting">Please wait - connecting...</div>
+    <div class="console">
+        <h3>Console:</h3>
+        <ol class="messages"></ol>
+    </div>
+    <input type="text" id="textInput" disabled="disabled" />
+</body>
+</html>

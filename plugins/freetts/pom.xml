@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.integralblue.commander.plugins</groupId>
+	<artifactId>freetts</artifactId>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>com.integralblue.commander</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.integralblue.commander</groupId>
+			<artifactId>api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mobicents.external.freetts</groupId>
+			<artifactId>cmu_us_kal</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mobicents.external.freetts</groupId>
+			<artifactId>cmu_time_awb</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mobicents.external.freetts</groupId>
+			<artifactId>freetts</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mobicents.external.freetts</groupId>
+			<artifactId>en_us</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mobicents.external.freetts</groupId>
+			<artifactId>cmulex</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.speech</groupId>
+			<artifactId>jsapi</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
+
+
+	<repositories>
+		<repository>
+			<id>speech</id>
+			<name>speech</name>
+			<url>http://maven.it.su.se/it.su.se/maven2</url>
+		</repository>
+		<repository>
+			<id>java.net-m2</id>
+			<name>java.net - Maven 2</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/java.net-m2</url>
+		</repository>
+	</repositories>
+</project>

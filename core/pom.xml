@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>core</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Commander Core</name>
+	<description>Voice Command System Core</description>
+
+	<parent>
+		<groupId>com.integralblue.commander</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<properties>
+		<exec.mainClass>com.integralblue.commander.Commander</exec.mainClass>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.integralblue.commander</groupId>
+			<artifactId>api</artifactId>
+		</dependency>
+
+		<!-- jar and maven have to be directly referenced because without them, 
+			there's no way to load loaders -->
+		<dependency>
+			<groupId>com.integralblue.commander.loaders</groupId>
+			<artifactId>jar</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.integralblue.commander.loaders</groupId>
+			<artifactId>maven</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- logback is the actual logger implementation used -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+
+		<!-- provide bindings for other logging frameworks so it any dependencies 
+			use these frameworks, they will log as expected -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Make MP3, Vorbis, FLAC, and speex audio formats available -->
+		<dependency>
+			<groupId>com.googlecode.soundlibs</groupId>
+			<artifactId>mp3spi</artifactId>
+			<version>1.9.5-1</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.soundlibs</groupId>
+			<artifactId>vorbisspi</artifactId>
+			<version>1.0.3-1</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.javaflacencoder</groupId>
+			<artifactId>java-flac-encoder</artifactId>
+			<version>0.2.3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mobicents.external.jspeex</groupId>
+			<artifactId>jspeex</artifactId>
+			<version>0.9.7</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>conjars.org</id>
+			<url>http://conjars.org/repo</url>
+		</repository>
+		<repository>
+			<id>jboss-releases</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+
+</project>
