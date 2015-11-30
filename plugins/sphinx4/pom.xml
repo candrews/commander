@@ -15,6 +15,10 @@
 		<relativePath>../..</relativePath>
 	</parent>
 
+	<properties>
+		<sphinx4.version>5prealpha-SNAPSHOT</sphinx4.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.integralblue.commander</groupId>
@@ -24,13 +28,13 @@
 		<dependency>
 			<groupId>edu.cmu.sphinx</groupId>
 			<artifactId>sphinx4-core</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${sphinx4.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>edu.cmu.sphinx</groupId>
 			<artifactId>sphinx4-data</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${sphinx4.version}</version>
 		</dependency>
 
 		<dependency>
