@@ -11,7 +11,7 @@
 	<description>Groovy Loader</description>
 
 	<properties>
-		<groovy.version>2.4.4</groovy.version>
+		<groovy.version>2.4.6</groovy.version>
 	</properties>
 
 	<parent>
