@@ -38,7 +38,7 @@ $(document).ready(function() {
 	            		'id': requestToClient.id
 	            	}));
             	};
-            	if ('speechSynthesis' in window) {
+            	if ('speechSynthesis' in window && speechSynthesis.getVoices().length > 0) {
 	            	var utterance = new SpeechSynthesisUtterance(requestToClient.text);
 	            	utterance.onend = onend;
 	            	window.speechSynthesis.speak(utterance);
