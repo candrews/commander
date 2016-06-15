@@ -21,7 +21,10 @@ public class DictationResponseFromClient extends ResponseFromClient {
 	@NonNull
 	String id;
 
-	@NonNull
 	String text;
+
+	String mimeType;
+
+	byte[] audio;
 
 }
