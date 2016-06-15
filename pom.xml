@@ -55,6 +55,7 @@
 		<module>plugins/echo</module>
 		<module>plugins/exceptionthrowingjsgfparser</module>
 		<module>plugins/keywords</module>
+		<module>plugins/kodi</module>
 		<module>plugins/logsay</module>
 		<module>plugins/mainmenuprompt</module>
 		<module>plugins/nevermind</module>
