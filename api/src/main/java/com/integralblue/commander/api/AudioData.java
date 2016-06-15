@@ -8,6 +8,7 @@ import java.io.OutputStream;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 
 import lombok.NonNull;
 import lombok.Value;
@@ -58,6 +59,8 @@ public class AudioData {
 	AudioFormat format;
 
 	public AudioInputStream getAudioInputStream() {
-		return new AudioInputStream(new ByteArrayInputStream(buffer), format, buffer.length / format.getFrameSize());
+		return new AudioInputStream(new ByteArrayInputStream(buffer), format,
+				format.getFrameSize() == AudioSystem.NOT_SPECIFIED ? AudioSystem.NOT_SPECIFIED
+						: (buffer.length / format.getFrameSize()));
 	}
 }
