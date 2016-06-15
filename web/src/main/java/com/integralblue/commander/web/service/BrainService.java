@@ -32,8 +32,10 @@ import lombok.Data;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class BrainService implements ApplicationContextAware {
 
 	@Component
@@ -168,6 +170,7 @@ public class BrainService implements ApplicationContextAware {
 	}
 
 	private void onApplicationEvent(SessionDisconnectEvent event) {
+		log.info("Disconnected. Close status: {}", event.getCloseStatus());
 		final String sessionId = event.getSessionId();
 		endSession(sessionId);
 	}
