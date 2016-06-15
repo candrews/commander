@@ -1,7 +1,6 @@
 package com.integralblue.commander.plugins.watson;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
 
@@ -11,12 +10,11 @@ import javax.sound.sampled.AudioSystem;
 
 import com.ibm.watson.developer_cloud.text_to_speech.v1.TextToSpeech;
 import com.ibm.watson.developer_cloud.text_to_speech.v1.model.Voice;
-import com.ibm.watson.developer_cloud.util.MediaType;
 import com.integralblue.commander.api.SynthesisEngine;
 
 public class WatsonSynthesisPlugin extends AbstractWatsonPlugin implements SynthesisEngine {
 	private static final AudioFormat WATSON_AUDIO_FORMAT = new AudioFormat(22050, 16, 1, true, false);
-	private static final String MEDIA_TYPE = MediaType.AUDIO_WAV;
+	private static final com.ibm.watson.developer_cloud.text_to_speech.v1.model.AudioFormat MEDIA_TYPE = com.ibm.watson.developer_cloud.text_to_speech.v1.model.AudioFormat.WAV;
 	private TextToSpeech textToSpeech;
 	private Voice voice;
 
@@ -26,7 +24,7 @@ public class WatsonSynthesisPlugin extends AbstractWatsonPlugin implements Synth
 		textToSpeech = new TextToSpeech();
 		textToSpeech.setUsernameAndPassword(username, password);
 		final String voiceName = config.getString("voice");
-		final List<Voice> voices = textToSpeech.getVoices();
+		final List<Voice> voices = textToSpeech.getVoices().execute();
 		for (Voice voice : voices) {
 			if (voiceName.equals(voice.getName())) {
 				this.voice = voice;
@@ -41,9 +39,9 @@ public class WatsonSynthesisPlugin extends AbstractWatsonPlugin implements Synth
 
 	@Override
 	public CompletionStage<Void> sayAsync(String text) {
-		return CompletableFuture.supplyAsync(() -> {
-			return new AudioInputStream(textToSpeech.synthesize(text, voice, MEDIA_TYPE), WATSON_AUDIO_FORMAT,
-					AudioSystem.NOT_SPECIFIED);
-		}).thenCompose(manager.getSpeaker()::playAsync);
+		return serviceCallToCompletionStage(textToSpeech.synthesize(text, voice, MEDIA_TYPE))
+				.thenApply((inputStream) -> {
+					return new AudioInputStream(inputStream, WATSON_AUDIO_FORMAT, AudioSystem.NOT_SPECIFIED);
+				}).thenCompose(manager.getSpeaker()::playAsync);
 	}
 }
