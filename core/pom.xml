@@ -67,7 +67,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Make MP3, Vorbis, FLAC, and speex audio formats available -->
+		<!-- Make MP3, Vorbis, FLAC, speex audio, and AAC formats available -->
 		<dependency>
 			<groupId>com.googlecode.soundlibs</groupId>
 			<artifactId>mp3spi</artifactId>
@@ -90,6 +90,13 @@
 			<groupId>org.mobicents.external.jspeex</groupId>
 			<artifactId>jspeex</artifactId>
 			<version>0.9.7</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- JAAD is an AAC decoder and MP4 demultiplexer -->
+		<dependency>
+		    <groupId>net.sourceforge.jaadec</groupId>
+		    <artifactId>jaad</artifactId>
+		    <version>0.8.5</version>
 			<scope>runtime</scope>
 		</dependency>
 
